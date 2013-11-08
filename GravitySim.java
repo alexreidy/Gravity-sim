@@ -90,16 +90,16 @@ public class GravitySim implements MouseListener, KeyListener {
     }
     
     private void go() {
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         frame.setSize(W, H);
         frame.setResizable(false);
-        frame.addKeyListener(this);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBackground(Color.BLACK);
-        
+
         frame.add(painter = new Painter());
         painter.addMouseListener(this);
-        
+
+        frame.addKeyListener(this);
         frame.setVisible(true);
         
         while (true) {
@@ -168,6 +168,7 @@ public class GravitySim implements MouseListener, KeyListener {
     
     class Painter extends Component {
         Ellipse2D.Double shape = new Ellipse2D.Double();
+
         public void paint(Graphics g) {
             Graphics2D g2D = (Graphics2D) g;
             
